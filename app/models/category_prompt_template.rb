@@ -1,0 +1,2 @@
+class CategoryPromptTemplate < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class SavePrompt < ApplicationRecord
+end
