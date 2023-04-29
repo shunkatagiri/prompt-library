@@ -30,26 +30,32 @@ ActiveRecord::Schema.define(version: 2023_04_28_054647) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
-    t.integer "user_id"
-    t.integer "prompt_template_id"
+    t.bigint "user_id", null: false
+    t.bigint "prompt_template_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["prompt_template_id"], name: "index_comments_on_prompt_template_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "prompt_template_id"
+    t.bigint "user_id", null: false
+    t.bigint "prompt_template_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["prompt_template_id"], name: "index_likes_on_prompt_template_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "prompt_templates", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
     t.string "title"
     t.text "content"
-    t.integer "category_id"
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_prompt_templates_on_category_id"
+    t.index ["user_id"], name: "index_prompt_templates_on_user_id"
   end
 
   create_table "save_prompts", force: :cascade do |t|
@@ -66,4 +72,10 @@ ActiveRecord::Schema.define(version: 2023_04_28_054647) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "comments", "prompt_templates"
+  add_foreign_key "comments", "users"
+  add_foreign_key "likes", "prompt_templates"
+  add_foreign_key "likes", "users"
+  add_foreign_key "prompt_templates", "categories"
+  add_foreign_key "prompt_templates", "users"
 end
