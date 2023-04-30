@@ -33,6 +33,7 @@ gem 'bootstrap', '~> 5.0'
 gem 'jquery-rails'
 gem 'vuejs'
 gem 'rspec-rails', group: [:development, :test]
+gem 'sorcery', '0.14.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
