@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">PromptLibrary</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/users">ユーザー一覧</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <% if current_user %>
+            <%= button_to 'ログアウト', logout_path, method: :delete, data: { confirm: 'ログアウトしてもよろしいですか？' }, class: 'btn btn-link' %>
+          <% else %>
+            <%= link_to 'ログイン', login_path, class: 'nav-link', rel: "nofollow" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

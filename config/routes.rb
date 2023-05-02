@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'prompt_templates#index'
   
-  get 'login', to: 'user_sessions#new', as: :login
+  get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
-  delete 'logout', to: 'user_sessions#destroy', as: :logout
+  delete 'logout', to: 'user_sessions#destroy'
 
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
 

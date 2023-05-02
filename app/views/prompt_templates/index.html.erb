@@ -1,0 +1,18 @@
+<h1>Prompt Templates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @prompt_templates.each do |prompt_template| %>
+      <tr>
+        <td><%= prompt_template.title %></td>
+        <td><%= prompt_template.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
