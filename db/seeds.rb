@@ -9,10 +9,10 @@
 user = User.create!(email: "unique_email@example.com", password: "password", password_confirmation: "password")
 
 # Category
-category = Category.create!(name: "Category 1")
+default_category = Category.create!(name: "Default") # カテゴリ名を "Default" に変更
 
 # PromptTemplate
-prompt_template = PromptTemplate.create!(title: "Prompt 1", content: "This is a test prompt.", user_id: user.id, category_id: category.id)
+prompt_template = PromptTemplate.create!(title: "Prompt 1", content: "This is a test prompt.", user_id: user.id, category_id: default_category.id)
 
 # Like
 Like.create!(user_id: user.id, prompt_template_id: prompt_template.id)

@@ -29,7 +29,7 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: prompt_library
+  # username: shunkatagiri
 
   # The password associated with the postgres role (username).
   #password:
@@ -80,7 +80,4 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: prompt_library_production
-  username: prompt_library
-  password: <%= ENV['PROMPT_LIBRARY_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
