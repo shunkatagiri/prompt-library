@@ -1,0 +1,31 @@
+<%= form_with model: prompt_template, local: true do |form| %>
+  <% if prompt_template.errors.any? %>
+    <div>
+      <h2><%= pluralize(prompt_template.errors.count, "error") %> prohibited this prompt_template from being saved:</h2>
+      <ul>
+        <% prompt_template.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.label :category_id %>
+    <%= form.select :category_id, Category.all.collect { |c| [c.name, c.id] } %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

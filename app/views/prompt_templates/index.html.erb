@@ -1,18 +1,24 @@
 <h1>Prompt Templates</h1>
 
+<%= link_to 'New Prompt Template', new_prompt_template_path %>
+
 <table>
-  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @prompt_templates.each do |prompt_template| %>
     <tr>
-      <th>Title</th>
-      <th>Content</th>
+      <td><%= prompt_template.title %></td>
+      <td><%= prompt_template.content %></td>
+      <td>
+        <%= link_to 'Edit', edit_prompt_template_path(prompt_template) %> |
+        <%= form_with url: prompt_template_path(prompt_template), method: :delete, local: true, class: "d-inline" do %>
+          <%= submit_tag 'Delete', data: { confirm: 'Are you sure?' }, class: 'btn btn-link' %>
+        <% end %>
+      </td>
     </tr>
-  </thead>
-  <tbody>
-    <% @prompt_templates.each do |prompt_template| %>
-      <tr>
-        <td><%= prompt_template.title %></td>
-        <td><%= prompt_template.content %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <% end %>
 </table>

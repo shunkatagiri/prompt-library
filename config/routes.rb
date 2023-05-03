@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :prompt_templates
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
