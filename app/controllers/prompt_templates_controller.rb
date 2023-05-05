@@ -1,6 +1,7 @@
 class PromptTemplatesController < ApplicationController
   def index
     @prompt_templates = PromptTemplate.all
+    @categories = Category.all
   end
   
   def new

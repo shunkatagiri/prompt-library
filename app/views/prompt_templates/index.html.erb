@@ -1,4 +1,8 @@
+<%# app/views/prompt_templates/index.erb %>
 <h1>Prompt Templates</h1>
+
+
+<%= render 'categories/categories_list', categories: @categories %>
 
 <%= link_to 'New Prompt Template', new_prompt_template_path %>
 
