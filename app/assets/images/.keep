@@ -1,0 +1,7 @@
+<style>
+  #intro {
+    background-image: url('<%= asset_path("DALL-E_2023-04-02_14.38.49.png") %>');
+    height: 100vh;
+  }
+  /* 他のスタイル */
+</style>
